@@ -1,0 +1,34 @@
+{
+  "generator-angm": {
+    "appName": "githubexplorer",
+    "angularCookies": true,
+    "angularAnimate": true,
+    "angularSanitize": true,
+    "angularBootstrap": true,
+    "modules": [
+      {
+        "name": "gefeature1"
+      },
+      {
+        "name": "gefeature2"
+      },
+      {
+        "name": "gefeature3"
+      }
+    ],
+    "menu": [
+      {
+        "link": "gefeature1",
+        "title": "Gefeature1"
+      },
+      {
+        "link": "gefeature2",
+        "title": "Gefeature2"
+      },
+      {
+        "link": "gefeature3",
+        "title": "Gefeature3"
+      }
+    ]
+  }
+}

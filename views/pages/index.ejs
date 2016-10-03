@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<!--
+  Future Imperfect by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html ng-app="githubexplorer">
+  <head>
+    <title>GitHub Explorer - TWEB - HEIG-VD</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+  </head>
+  <body class="single">
+
+    <!-- Wrapper -->
+      <div id="wrapper">
+
+        <!-- Header -->
+          <header id="header">
+            <h1><a href="#">GitHub Explorer</a></h1>
+            <nav class="main">
+              <ul>
+                <li class="menu">
+                  <a class="fa-bars" href="#menu">Menu</a>
+                </li>
+              </ul>
+            </nav>
+          </header>
+
+        <!-- Menu -->
+          <section id="menu">
+
+            <!-- Links -->
+              <section>
+                <ul class="links">
+                  <li>
+                    <a ui-sref="gefeature1">
+                      <h3>Feature 1</h3>
+                      <p></p>
+                    </a>
+                  </li>
+                  <li>
+                    <a ui-sref="gefeature2">
+                      <h3>Feature 2</h3>
+                      <p></p>
+                    </a>
+                  </li>
+                  <li>
+                    <a ui-sref="gefeature3">
+                      <h3>Feature 3</h3>
+                      <p></p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <h3>About</h3>
+                      <p>Back to the landing page</p>
+                    </a>
+                  </li>
+                </ul>
+              </section>>
+
+            <!-- Actions -->
+              <section>
+                <ul class="actions vertical">
+                  <li><a href="#" class="button big fit">Log In</a></li>
+                </ul>
+              </section>
+
+          </section>
+
+        <!-- Main -->
+          <div id="main">
+            <!-- Include sub-view with UI-Router -->
+            <div ui-view></div> 
+          </div>
+
+        <!-- Footer -->
+          <section id="footer">
+            <ul class="icons">
+              <li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+              <li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+              <li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+              <li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
+              <li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+            <p class="copyright">&copy; HEIG-VD. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+          </section>
+
+      </div>
+
+  <!-- injector:js -->
+  <script src="/src/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/src/bower_components/es5-shim/es5-shim.js"></script>
+  <script src="/src/bower_components/json3/lib/json3.min.js"></script>
+  <script src="/src/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="/src/bower_components/angular/angular.js"></script>
+  <script src="/src/bower_components/angular-touch/angular-touch.js"></script>
+  <script src="/src/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/src/bower_components/angular-aria/angular-aria.js"></script>
+  <script src="/src/bower_components/angular-mocks/angular-mocks.js"></script>
+  <script src="/src/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/src/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/src/bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="/src/bower_components/angular-resource/angular-resource.js"></script>
+  <script src="/src/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/src/bower_components/chart.js/dist/Chart.js"></script>
+  <script src="/src/bower_components/angular-chart.js/dist/angular-chart.js"></script>
+  <script src="/app/assets/js/githubexplorer-appbundle.js"></script>
+  <script src="/app/assets/js/templates.js"></script>
+  <!-- endinjector -->
+
+    <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/skel.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+      <script src="assets/js/main.js"></script>
+
+  </body>
+</html>
