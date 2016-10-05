@@ -46,7 +46,10 @@ module.exports = function (grunt) {
 					'app/modules/**/*Route.js',
 					'app/modules/**/*Ctrl.js',
 					'app/modules/**/*Service.js',
-					'app/modules/**/*Directive.js'
+					'app/modules/**/*Directive.js',
+					'app/lib/Chart.js',
+					'app/lib/angular-chart.js'
+
 				],
 				dest: 'app/assets/js/<%= pkg.name %>-appbundle.js'
 			},
@@ -71,7 +74,7 @@ module.exports = function (grunt) {
 				dest: 'app/assets/js/<%= pkg.name %>-angscript.min.js'
 			},
 			basePlugin: {
-				src: [ 'src/plugins/**/*.js' ],
+				src: ['src/plugins/**/*.js'],
 				dest: 'app/assets/js/plugins/',
 				expand: true,
 				flatten: true,
