@@ -1,5 +1,5 @@
 /*!
-* githubexplorer - v0.0.1 - MIT LICENSE 2016-10-03. 
+* githubexplorer - v0.0.1 - MIT LICENSE 2016-10-05. 
 * @author Guillaume Serneels
 */
 (function() {
