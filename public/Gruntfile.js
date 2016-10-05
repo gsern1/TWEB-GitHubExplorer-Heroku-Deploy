@@ -122,7 +122,8 @@ module.exports = function (grunt) {
 						'app/**/*Ctrl.js',
 						'app/**/*Service.js',
 						'app/**/*Directive.js',
-						'app/lib/Chart.js'
+						'app/lib/Chart.js',
+						'app/lib/angular-chart.js'
 					]
 				}
 			},
