@@ -1,6 +1,13 @@
 <div class="container">
-<h1>Feature 2: Doughnut graph produced with angular-chart.js</h1>
-<canvas id="pie" class="chart chart-pie" chart-data="vm.data" chart-labels="vm.labels">
+    <div>
+		<h1>{{username}}</h1>
+		<p>Number of commits by contributor in the repo {{repoName}}</p>
+        <h3>Username<br/>
+        <input ng-model="username" ng-change="getRepoData()"/></h3><br/>
+        <h3>Repository name<br/>
+        <input ng-model="repoName" ng-change="getRepoData()"/></h3><br/>
+		<canvas id="pie" class="chart chart-pie" chart-data="numberOfCommits" chart-labels="authors"><br/>
+	</div><br/><br/>
 </canvas>
 
 </div>

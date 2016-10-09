@@ -1,3 +1,17 @@
 <div class="container">
-	<h1>Content from: gefeature3 page</h1>
+	<div class="repolist clearfix">
+		<h1>{{username}}</h1>
+		<p>List of repos for the user {{username}}</p>
+        <h3>Username<br/>
+        <input ng-model="username" ng-change="getUserData()"/></h3><br/>
+
+		<h1><p ng-hide="reposFound">No repos!</p></h1>
+	
+		<div ng-show="reposFound">
+			<strong>Repos List:</strong><br/>
+			<div ng-repeat="repo in repos">
+				<a href="{{repo.html_url}}" target="_blank"> {{repo.name}} </a><br/>
+			</div>
+		</div>
+	</div><br/><br/>
 </div>

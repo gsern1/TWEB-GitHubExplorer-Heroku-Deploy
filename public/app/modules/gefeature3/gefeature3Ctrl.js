@@ -13,7 +13,7 @@
 		.module('gefeature3')
 		.controller('Gefeature3Ctrl', Gefeature3);
 
-		Gefeature3.$inject = [];
+		Gefeature3.$inject = ['$scope', '$http'];
 
 		/*
 		* recommend
@@ -21,10 +21,25 @@
 		* and bindable members up top.
 		*/
 
-		function Gefeature3() {
+		function Gefeature3($scope, $http) {
 			/*jshint validthis: true */
 			var vm = this;
 
+			$scope.username = 'angular';
+			
+			$http.get("https://api.github.com/users/" + $scope.username + "/repos")
+			.success(function (data) {
+				$scope.repos = data;
+				$scope.reposFound = data.length;
+			});
+
+			$scope.getUserData = function() {
+				$http.get("https://api.github.com/users/" + $scope.username + "/repos")
+			       .success(function (data) {
+				     $scope.repos = data;
+				     $scope.reposFound = data.length;
+			    });
+			};
 		}
 
 })();

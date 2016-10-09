@@ -10,8 +10,15 @@ angular.module('githubexplorer').run(['$templateCache', function($templateCache)
 
   $templateCache.put('app/modules/gefeature2/gefeature2.html',
     "<div class=\"container\">\n" +
-    "<h1>Feature 2: Doughnut graph produced with angular-chart.js</h1>\n" +
-    "<canvas id=\"pie\" class=\"chart chart-pie\" chart-data=\"vm.data\" chart-labels=\"vm.labels\">\n" +
+    "    <div>\n" +
+    "		<h1>{{username}}</h1>\n" +
+    "		<p>Number of commits by contributor in the repo {{repoName}}</p>\n" +
+    "        <h3>Username<br/>\n" +
+    "        <input ng-model=\"username\" ng-change=\"getRepoData()\"/></h3><br/>\n" +
+    "        <h3>Repository name<br/>\n" +
+    "        <input ng-model=\"repoName\" ng-change=\"getRepoData()\"/></h3><br/>\n" +
+    "		<canvas id=\"pie\" class=\"chart chart-pie\" chart-data=\"numberOfCommits\" chart-labels=\"authors\"><br/>\n" +
+    "	</div><br/><br/>\n" +
     "</canvas>\n" +
     "\n" +
     "</div>"
@@ -20,7 +27,21 @@ angular.module('githubexplorer').run(['$templateCache', function($templateCache)
 
   $templateCache.put('app/modules/gefeature3/gefeature3.html',
     "<div class=\"container\">\n" +
-    "	<h1>Content from: gefeature3 page</h1>\n" +
+    "	<div class=\"repolist clearfix\">\n" +
+    "		<h1>{{username}}</h1>\n" +
+    "		<p>List of repos for the user {{username}}</p>\n" +
+    "        <h3>Username<br/>\n" +
+    "        <input ng-model=\"username\" ng-change=\"getUserData()\"/></h3><br/>\n" +
+    "\n" +
+    "		<h1><p ng-hide=\"reposFound\">No repos!</p></h1>\n" +
+    "	\n" +
+    "		<div ng-show=\"reposFound\">\n" +
+    "			<strong>Repos List:</strong><br/>\n" +
+    "			<div ng-repeat=\"repo in repos\">\n" +
+    "				<a href=\"{{repo.html_url}}\" target=\"_blank\"> {{repo.name}} </a><br/>\n" +
+    "			</div>\n" +
+    "		</div>\n" +
+    "	</div><br/><br/>\n" +
     "</div>\n"
   );
 

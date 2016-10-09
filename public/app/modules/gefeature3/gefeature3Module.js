@@ -9,6 +9,6 @@
 	 * Module of the app
 	 */
 
-  	angular.module('gefeature3', []);
+  	angular.module('gefeature3', ['chart.js']);
 
 })();
