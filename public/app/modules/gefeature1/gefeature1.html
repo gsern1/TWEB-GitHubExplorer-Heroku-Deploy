@@ -1,3 +1,21 @@
-<div class="container">
+<div class="container" ng-init="getMostStarredRepos()">
 	<h1>Content from: gefeature1 page</h1>
+	<p>List of the most starred repos : </p>
+	<table class="table">
+		<thead>
+			<th>Name</th>
+			<th>Forks</th>
+			<th>Stars</th>
+		</thead>
+		<tbody>
+			<tr ng-hide="reposFound"><th>No repos!</th><td></td><td></td></tr>
+			<div ng-show="reposFound">
+				<tr ng-repeat="repo in most_starred_repos">
+					<td><a href="{{repo.html_url}}" target="_blank"> {{repo.name}} </a></td>
+					<td>{{repo.forks}}</td>
+					<td>{{repo.stargazers_count}}</td>
+				</tr>
+			</div>
+		</tbody>
+	</table>
 </div>

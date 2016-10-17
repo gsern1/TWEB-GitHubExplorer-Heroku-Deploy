@@ -1,5 +1,5 @@
 /*!
-* githubexplorer - v0.0.1 - MIT LICENSE 2016-10-09. 
+* githubexplorer - v0.0.1 - MIT LICENSE 2016-10-17. 
 * @author Guillaume Serneels
 */
 (function() {
@@ -241,7 +241,7 @@ angular.module('githubexplorer')
 		.module('gefeature1')
 		.controller('Gefeature1Ctrl', Gefeature1);
 
-		Gefeature1.$inject = [];
+		Gefeature1.$inject = ['$scope', '$http'];
 
 		/*
 		* recommend
@@ -249,10 +249,17 @@ angular.module('githubexplorer')
 		* and bindable members up top.
 		*/
 
-		function Gefeature1() {
+		function Gefeature1($scope, $http) {
 			/*jshint validthis: true */
 			var vm = this;
-
+			$scope.getMostStarredRepos = function() {
+				$http.get("/most_starred_repos")
+					.success(function (data) {
+						console.log(data);
+						$scope.most_starred_repos = data;
+						$scope.reposFound = data.length;
+					});
+			};
 		}
 
 })();
@@ -286,33 +293,12 @@ angular.module('githubexplorer')
 
 			$scope.username = 'angular';
 			$scope.repoName = 'angular';
-
-			$http.get("https://api.github.com/repos/" + $scope.username + "/" + $scope.repoName + "/commits")
-				.success(function (data) {
-					var authorsList = [];
-					for(var commit in data) {
-						authorsList[data[commit].commit.author.name] = authorsList[data[commit].commit.author.name] ? authorsList[data[commit].commit.author.name] + 1 : 1; 
-					}
-
-					var authors = [],
-						numberOfCommits = [];
-
-					for (var property in authorsList) {
-						if ( ! authorsList.hasOwnProperty(property)) {
-							continue;
-						}
-
-						authors.push(property);
-						numberOfCommits.push(authorsList[property]);
-					}
-					console.log(JSON.stringify(authors));
-					console.log(JSON.stringify(numberOfCommits));
-					$scope.authors = authors;
-					$scope.numberOfCommits = numberOfCommits;
-				});
+			var token = '1ee24c1562555ac1694480b39762c7764c7c6be4';
 
 			$scope.getRepoData = function() {
-				$http.get("https://api.github.com/repos/" + $scope.username + "/" + $scope.repoName + "/commits")
+				$http.get("https://api.github.com/repos/" + $scope.username + "/" + $scope.repoName + "/commits", {
+					headers: {'Authorization': 'token '+token}
+				})
 					.success(function (data) {
 						var authorsList = [];
 						for(var commit in data) {
@@ -371,14 +357,10 @@ angular.module('githubexplorer')
 
 			$scope.username = 'angular';
 			
-			$http.get("https://api.github.com/users/" + $scope.username + "/repos")
-			.success(function (data) {
-				$scope.repos = data;
-				$scope.reposFound = data.length;
-			});
-
 			$scope.getUserData = function() {
-				$http.get("https://api.github.com/users/" + $scope.username + "/repos")
+				$http.get("https://api.github.com/users/" + $scope.username + "/repos", {
+					headers: {'Authorization': 'token '+token}
+				})
 			       .success(function (data) {
 				     $scope.repos = data;
 				     $scope.reposFound = data.length;

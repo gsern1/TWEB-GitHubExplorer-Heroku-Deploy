@@ -27,33 +27,12 @@
 
 			$scope.username = 'angular';
 			$scope.repoName = 'angular';
-
-			$http.get("https://api.github.com/repos/" + $scope.username + "/" + $scope.repoName + "/commits")
-				.success(function (data) {
-					var authorsList = [];
-					for(var commit in data) {
-						authorsList[data[commit].commit.author.name] = authorsList[data[commit].commit.author.name] ? authorsList[data[commit].commit.author.name] + 1 : 1; 
-					}
-
-					var authors = [],
-						numberOfCommits = [];
-
-					for (var property in authorsList) {
-						if ( ! authorsList.hasOwnProperty(property)) {
-							continue;
-						}
-
-						authors.push(property);
-						numberOfCommits.push(authorsList[property]);
-					}
-					console.log(JSON.stringify(authors));
-					console.log(JSON.stringify(numberOfCommits));
-					$scope.authors = authors;
-					$scope.numberOfCommits = numberOfCommits;
-				});
+			var token = '1ee24c1562555ac1694480b39762c7764c7c6be4';
 
 			$scope.getRepoData = function() {
-				$http.get("https://api.github.com/repos/" + $scope.username + "/" + $scope.repoName + "/commits")
+				$http.get("https://api.github.com/repos/" + $scope.username + "/" + $scope.repoName + "/commits", {
+					headers: {'Authorization': 'token '+token}
+				})
 					.success(function (data) {
 						var authorsList = [];
 						for(var commit in data) {

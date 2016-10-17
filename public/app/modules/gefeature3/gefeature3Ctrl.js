@@ -27,14 +27,10 @@
 
 			$scope.username = 'angular';
 			
-			$http.get("https://api.github.com/users/" + $scope.username + "/repos")
-			.success(function (data) {
-				$scope.repos = data;
-				$scope.reposFound = data.length;
-			});
-
 			$scope.getUserData = function() {
-				$http.get("https://api.github.com/users/" + $scope.username + "/repos")
+				$http.get("https://api.github.com/users/" + $scope.username + "/repos", {
+					headers: {'Authorization': 'token '+token}
+				})
 			       .success(function (data) {
 				     $scope.repos = data;
 				     $scope.reposFound = data.length;
