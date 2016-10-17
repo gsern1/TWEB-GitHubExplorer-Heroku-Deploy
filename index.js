@@ -3,7 +3,7 @@ var app = express();
 var request = require('request-promise');
 var MongoClient = require('mongodb').MongoClient;
 
-var db_url = "mongodb://192.168.99.100:27017/github_data";
+var db_url = "mongodb://admin:adminghe@ds057066.mlab.com:57066/heroku_70302nzl";
 var token = '1ee24c1562555ac1694480b39762c7764c7c6be4';
 
 // Fetch data
