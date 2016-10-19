@@ -1,6 +1,6 @@
 /*!
-* githubexplorer - v0.0.1 - MIT LICENSE 2016-10-17. 
-* @author Guillaume Serneels
+* githubexplorer - v0.0.1 - MIT LICENSE 2016-10-19. 
+* @author Guillaume Serneels & Antoine Drabble
 */
 (function() {
 	'use strict';
