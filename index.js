@@ -56,6 +56,7 @@ function fetchMostStarredRepos(context){
 function saveMostStarredRepos(context){
   console.log("Saving most starred repositories...");
   var collection = context.db.collection("repos");
+  collection.remove({});
   return collection.insertMany(context.repos.items)
     .then(function(results){
       console.log("Most starred repositories saved");
