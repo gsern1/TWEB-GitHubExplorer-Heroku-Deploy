@@ -1,17 +1,19 @@
 <div class="container" ng-init="getUserData()">
 	<div class="repolist clearfix">
-		<h1>{{username}}</h1>
-		<p>List of repos for the user {{username}}</p>
-        <h3>Username<br/>
-        <input ng-model="username" ng-change="getUserData()"/></h3><br/>
+		<h1>Feature 3 : User's repositories</h1>
+				<p>List all the repositories of the user {{username}}</p><br/>
+				<h3>Username<br/>
+					<input ng-model="username" ng-change="getUserData()" /></h3><br/>
 
-		<h1><p ng-hide="reposFound">No repos!</p></h1>
-	
-		<div ng-show="reposFound">
-			<strong>Repos List:</strong><br/>
-			<div ng-repeat="repo in repos">
-				<a href="{{repo.html_url}}" target="_blank"> {{repo.name}} </a><br/>
-			</div>
-		</div>
+				<h1>
+					<p ng-hide="reposFound">No repos!</p>
+				</h1>
+
+				<div ng-show="reposFound">
+					<strong>Repos List:</strong><br/>
+					<div ng-repeat="repo in repos">
+						<a href="{{repo.html_url}}" target="_blank"> {{repo.name}} </a><br/>
+					</div>
+				</div>
 	</div><br/><br/>
 </div>

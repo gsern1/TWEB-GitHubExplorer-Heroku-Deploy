@@ -32,4 +32,4 @@ https://tweb-github-explorer.herokuapp.com/
 
 ### Feature 2 : repository commiters
 
-### Feature 3 : list of user's repositories
+### Feature 3 : user's repositories
