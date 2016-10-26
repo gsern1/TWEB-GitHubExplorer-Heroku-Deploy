@@ -26,10 +26,20 @@ https://tweb-github-explorer.herokuapp.com/
 
 ### html template
 
+The html template we're using is Future Imperfect from html5up.
+
+https://html5up.net/future-imperfect
+
 ## GitHub Explorer features
 
 ### Feature 1 : most starred repos
 
+List the repositories which recieved stars from the most users on GitHub.
+
 ### Feature 2 : repository commiters
 
+See every user who commited to the repository of your choice and the percentages of their contribution
+
 ### Feature 3 : user's repositories
+
+List all the repositories of the user of your choice
