@@ -1,12 +1,12 @@
 <div class="container" ng-init="getRepoData()">
 	<div>
 		<h1>Feature 2 : Repository commiters</h1>
-				<p>See every user who commited to the repository {{repoName}} owned by {{username}}, and the percentages of their contribution</p><br/>
-				<h3>Username<br/>
-					<input ng-model="username" ng-change="getRepoData()" /></h3><br/>
-				<h3>Repository name<br/>
-					<input ng-model="repoName" ng-change="getRepoData()" /></h3><br/>
-				<canvas id="pie" class="chart chart-pie" chart-data="numberOfCommits" chart-labels="authors"><br/>
+		<p>See every user who commited to the repository {{repoName}} owned by {{username}}, and the percentages of their contribution</p><br/>
+		<h3>Username<br/>
+			<input ng-model="username" ng-change="getRepoData()" /></h3><br/>
+		<h3>Repository name<br/>
+			<input ng-model="repoName" ng-change="getRepoData()" /></h3><br/>
+		<canvas id="pie" class="chart chart-pie" chart-data="numberOfCommits" chart-labels="authors"><br/>
 	</div><br/><br/>
 	</canvas>
 
