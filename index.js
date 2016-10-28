@@ -10,7 +10,6 @@ var token = '1ee24c1562555ac1694480b39762c7764c7c6be4';
 fetchAndSaveMostStarredRepos()
   .then(function(result){
       console.log("We are done");
-      console.log(result);
   })
   .catch(function(error){
     console.log("There was an error");
@@ -72,6 +71,9 @@ function closeDatabaseConnection(context){
   })
 }
 
+var bodyParser = require('body-parser')
+app.use(bodyParser.json());       // to support JSON-encoded bodies
+app.use(bodyParser.json());       // to support JSON-encoded bodies
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -90,9 +92,40 @@ app.get('/most_starred_repos', function(request, response){
     .then(function(db){
       db.collection('repos', function(err, collection) {
              collection.find({}, {name: 1, html_url: 1, stargazers_count: 1, forks: 1}).toArray(function(err, items) {
-                 console.log(items);
                  response.json(items);
              });
+      });
+    })
+    .catch(function(error){
+      console.log("Error connecting to the database");
+      console.log(error);
+    });
+});
+
+app.get('/history', function(request, response){
+  MongoClient.connect(db_url)
+    .then(function(db){
+      db.collection('history', function(err, collection) {
+             collection.find({}, {date: 1, user: 1, repo: 1}).toArray(function(err, items) {
+                 response.json(items);
+             });
+      });
+    })
+    .catch(function(error){
+      console.log("Error connecting to the database");
+      console.log(error);
+    });
+});
+
+app.post('/add_feature2_request', function(request, response){
+  console.log(request.body.repo);
+  MongoClient.connect(db_url)
+    .then(function(db){
+      db.collection('history', function(err, collection) {
+             collection.insert({repo: request.body.repo, user: request.body.user, date: new Date()}).then(function(results){
+              console.log("Inserted request");
+              return context;
+            })
       });
     })
     .catch(function(error){

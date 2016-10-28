@@ -24,13 +24,12 @@
 		function Gefeature3($scope, $http) {
 			/*jshint validthis: true */
 			var vm = this;
-			var token = '1ee24c1562555ac1694480b39762c7764c7c6be4';
 
 			$scope.username = 'angular';
 			
 			$scope.getUserData = function() {
 				$http.get("https://api.github.com/users/" + $scope.username + "/repos", {
-					headers: {'Authorization': 'token '+token}
+					headers: {'Authorization': 'token 1ee24c1562555ac1694480b39762c7764c7c6be4'}
 				})
 			       .success(function (data) {
 				     $scope.repos = data;

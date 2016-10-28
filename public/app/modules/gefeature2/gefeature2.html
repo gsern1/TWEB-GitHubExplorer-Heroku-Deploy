@@ -6,8 +6,30 @@
 			<input ng-model="username" ng-change="getRepoData()" /></h3><br/>
 		<h3>Repository name<br/>
 			<input ng-model="repoName" ng-change="getRepoData()" /></h3><br/>
-		<canvas id="pie" class="chart chart-pie" chart-data="numberOfCommits" chart-labels="authors"><br/>
+		<canvas id="pie" class="chart chart-pie" chart-data="numberOfCommits" chart-labels="authors"><br/>	
 	</div><br/><br/>
 	</canvas>
+	<h3>History of the requests</h3>
+		<table class="table">
+		<thead>
+			<th>User</th>
+			<th>Repo</th>
+			<th>Date</th>
+		</thead>
+		<tbody>
+			<tr ng-hide="requestFound">
+				<th>No history!</th>
+				<td></td>
+				<td></td>
+			</tr>
+			<div ng-show="requestFound">
+				<tr ng-repeat="request in history | orderBy:'request.date':true | limitTo:10">
+					<td>{{request.user}}</td>
+					<td>{{request.repo}}</td>
+					<td>{{request.date | date:"dd/MM/yyyy 'at' h:mma"}}</td>
+				</tr>
+			</div>
+		</tbody>
+	</table>
 
 </div>
