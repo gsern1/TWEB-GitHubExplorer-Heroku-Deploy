@@ -8,7 +8,7 @@ The project is aimed at developing and deploying an AngularJS 1 web application 
 
 ### branch gh-pages : Landing Page
 
-The gh-pages branch of this repository contains the landing page of the github explorer web app.
+The **gh-pages** branch of this repository contains the landing page of the github explorer web app.
 
 The landing page is made available using GitHub Pages an can be accessed at the following URL:
 
@@ -17,7 +17,7 @@ https://gsern1.github.io/TWEB-GitHubExplorer-Heroku-Deploy/
 
 ### branch master : Github explorer web application
 
-The master branch of this repository contains the source code of the github explorer web app as deployed on [heroku](www.heroku.com).
+The **master branch** of this repository contains the source code of the github explorer web app as deployed on [heroku](www.heroku.com).
 
 To develop this project we have first created an [AngularJS](https://angularjs.org) application using the [angm](https://github.com/newaeonweb/generator-angm) generator. The application's navigation relies on the [UI-Router](https://github.com/angular-ui/ui-router) framework and the charts display is made possible by the [angular-chart.js](https://jtblin.github.io/angular-chart.js/) (based on [Chart.js](http://www.chartjs.org/)) module. 
 
