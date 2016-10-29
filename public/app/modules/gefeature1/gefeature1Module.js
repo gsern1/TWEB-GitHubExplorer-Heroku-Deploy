@@ -12,6 +12,6 @@
 	 * @author Guillaume Serneels
 	 */
 
-  	angular.module('gefeature1', []);
+	angular.module('gefeature1', []);
 
 })();

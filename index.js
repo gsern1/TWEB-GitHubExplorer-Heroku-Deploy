@@ -20,17 +20,18 @@ var token = '1ee24c1562555ac1694480b39762c7764c7c6be4';
  * Fetch the list of most starred repos and save it in the mongoDB database
  */
 fetchAndSaveMostStarredRepos()
-  .then(function(result){
-      console.log("We are done");
+  .then(function (result) {
+    console.log("We are done");
   })
-  .catch(function(error){
+  .catch(function (error) {
     console.log("There was an error");
     console.log(error);
   });
 /**
- * Request-promise structure to fetch the list of most starred repos and save it in the mongoDB database
+ * This function relies on the request-promise syntax to fetch the list of 
+ * most starred repos and save it in the mongoDB database
  */
-function fetchAndSaveMostStarredRepos(){
+function fetchAndSaveMostStarredRepos() {
   var context = {};
   context.db_url = db_url;
   context.apiOptions = {
@@ -38,11 +39,14 @@ function fetchAndSaveMostStarredRepos(){
     json: true,
     method: 'GET',
     headers: {
-      'user-agent': 'node.js', 
-      'Authorization': 'token '+token
+      'user-agent': 'node.js',
+      'Authorization': 'token ' + token
     }
   }
-
+  /**
+   * The context object is passed through each request-promise allowing the most 
+   * starred repository data to be transmitted between each step
+   * */
   return openDatabaseConnection(context)
     .then(fetchMostStarredRepos)
     .then(saveMostStarredRepos)
@@ -51,10 +55,10 @@ function fetchAndSaveMostStarredRepos(){
 /**
  * Connect to the MongoDB database
  */
-function openDatabaseConnection(context){
+function openDatabaseConnection(context) {
   console.log("open DB connection...");
   return MongoClient.connect(context.db_url)
-    .then(function(db){
+    .then(function (db) {
       console.log("DB connection opened");
       context.db = db;
       return context;
@@ -63,10 +67,10 @@ function openDatabaseConnection(context){
 /**
  * Question github api to fetch the list of most starred repos  
  */
-function fetchMostStarredRepos(context){
+function fetchMostStarredRepos(context) {
   console.log("fetching most starred repositories from REST api...");
   return request(context.apiOptions)
-    .then(function(repos){
+    .then(function (repos) {
       console.log("Most starred repositories fetched.");
       context.repos = repos;
       return context;
@@ -75,12 +79,12 @@ function fetchMostStarredRepos(context){
 /**
  * Save the most starred repos on the database in the form of a new collection named "repos"
  */
-function saveMostStarredRepos(context){
+function saveMostStarredRepos(context) {
   console.log("Saving most starred repositories...");
   var collection = context.db.collection("repos");
   collection.remove({});
   return collection.insertMany(context.repos.items)
-    .then(function(results){
+    .then(function (results) {
       console.log("Most starred repositories saved");
       return context;
     })
@@ -88,13 +92,13 @@ function saveMostStarredRepos(context){
 /**
  * Close the connection to the MongoDB database
  */
-function closeDatabaseConnection(context){
+function closeDatabaseConnection(context) {
   console.log("closing db connection...");
   return context.db.close()
-  .then(function(){
-    console.log("DB connection closed");
-    return context;
-  })
+    .then(function () {
+      console.log("DB connection closed");
+      return context;
+    })
 }
 
 var bodyParser = require('body-parser')
@@ -110,57 +114,57 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', function(request, response) {
-    response.render('pages/index');
+app.get('/', function (request, response) {
+  response.render('pages/index');
 });
 
-app.get('/most_starred_repos', function(request, response){
+app.get('/most_starred_repos', function (request, response) {
   MongoClient.connect(db_url)
-    .then(function(db){
-      db.collection('repos', function(err, collection) {
-             collection.find({}, {name: 1, html_url: 1, stargazers_count: 1, forks: 1}).toArray(function(err, items) {
-                 response.json(items);
-             });
+    .then(function (db) {
+      db.collection('repos', function (err, collection) {
+        collection.find({}, { name: 1, html_url: 1, stargazers_count: 1, forks: 1 }).toArray(function (err, items) {
+          response.json(items);
+        });
       });
     })
-    .catch(function(error){
+    .catch(function (error) {
       console.log("Error connecting to the database");
       console.log(error);
     });
 });
 
-app.get('/history', function(request, response){
+app.get('/history', function (request, response) {
   MongoClient.connect(db_url)
-    .then(function(db){
-      db.collection('history', function(err, collection) {
-             collection.find({}, {date: 1, user: 1, repo: 1}).toArray(function(err, items) {
-                 response.json(items);
-             });
+    .then(function (db) {
+      db.collection('history', function (err, collection) {
+        collection.find({}, { date: 1, user: 1, repo: 1 }).toArray(function (err, items) {
+          response.json(items);
+        });
       });
     })
-    .catch(function(error){
+    .catch(function (error) {
       console.log("Error connecting to the database");
       console.log(error);
     });
 });
 
-app.post('/add_feature2_request', function(request, response){
+app.post('/add_feature2_request', function (request, response) {
   console.log(request.body.repo);
   MongoClient.connect(db_url)
-    .then(function(db){
-      db.collection('history', function(err, collection) {
-             collection.insert({repo: request.body.repo, user: request.body.user, date: new Date()}).then(function(results){
-              console.log("Inserted request");
-              return context;
-            })
+    .then(function (db) {
+      db.collection('history', function (err, collection) {
+        collection.insert({ repo: request.body.repo, user: request.body.user, date: new Date() }).then(function (results) {
+          console.log("Inserted request");
+          return context;
+        })
       });
     })
-    .catch(function(error){
+    .catch(function (error) {
       console.log("Error connecting to the database");
       console.log(error);
     });
 });
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'));
 });

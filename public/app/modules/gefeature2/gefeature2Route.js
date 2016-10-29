@@ -12,13 +12,13 @@
 
 angular.module('gefeature2')
 	.config(['$stateProvider', function ($stateProvider) {
-		
+
 		$stateProvider
 			.state('gefeature2', {
-				url:'/gefeature2',
+				url: '/gefeature2',
 				templateUrl: 'app/modules/gefeature2/gefeature2.html',
 				controller: 'Gefeature2Ctrl',
 				controllerAs: 'vm'
 			});
-		
+
 	}]);

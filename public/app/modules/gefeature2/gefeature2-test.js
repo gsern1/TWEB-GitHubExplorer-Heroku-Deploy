@@ -3,7 +3,7 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.test:gefeature1Test
+	 * @name app.test:gefeature2Test
 	 * @description
 	 * # gefeature1Test
 	 * Test of the github explorer app feature 2

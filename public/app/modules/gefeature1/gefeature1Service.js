@@ -1,4 +1,4 @@
-(function() {
+(function () {
 	'use strict';
 
 	/**
@@ -11,16 +11,16 @@
      * @author Guillaume Serneels
 	 */
 
-  	angular
+	angular
 		.module('gefeature1')
 		.factory('Gefeature1Service', Gefeature1);
-		// Inject your dependencies as .$inject = ['$http', 'someSevide'];
-		// function Name ($http, someSevide) {...}
+	// Inject your dependencies as .$inject = ['$http', 'someSevide'];
+	// function Name ($http, someSevide) {...}
 
-		Gefeature1.$inject = ['$http'];
+	Gefeature1.$inject = ['$http'];
 
-		function Gefeature1 ($http) {
+	function Gefeature1($http) {
 
-		}
+	}
 
 })();

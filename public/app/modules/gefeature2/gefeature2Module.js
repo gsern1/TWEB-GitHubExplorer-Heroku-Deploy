@@ -13,6 +13,6 @@
 	 */
 
 
-  	angular.module('gefeature2', ['chart.js']);
+	angular.module('gefeature2', ['chart.js']);
 
 })();

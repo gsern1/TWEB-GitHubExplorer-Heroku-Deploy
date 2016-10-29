@@ -1,4 +1,4 @@
-(function() {
+(function () {
 	'use strict';
 
 	/**
@@ -17,7 +17,6 @@
 		'ngResource',
 		'ngAria',
 		'ui.bootstrap',
-		
 		'ngCookies',
 		'ngAnimate',
 		'ngTouch',

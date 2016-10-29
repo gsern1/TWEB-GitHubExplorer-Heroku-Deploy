@@ -12,6 +12,6 @@
 	 * @author Guillaume Serneels
 	 */
 
-  	angular.module('gefeature3', ['chart.js']);
+	angular.module('gefeature3', ['chart.js']);
 
 })();
