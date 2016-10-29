@@ -1,12 +1,24 @@
+/**
+ * Entry point of the github explorer web app, this file is needed because we have encapsulated our angular 1 application
+ * inside a node.js application using Express 4 in order to deploy it on heroku.
+ *
+ * @summary   Entry point of the github explorer web app
+ *
+ * @link      https://tweb-github-explorer.herokuapp.com/
+ * 
+ */
 var express = require('express');
 var app = express();
 var request = require('request-promise');
 var MongoClient = require('mongodb').MongoClient;
-
+/* This MangoDB database is provided by the mLab module on heroku */
 var db_url = "mongodb://admin:adminghe@ds057066.mlab.com:57066/heroku_70302nzl";
 var token = '1ee24c1562555ac1694480b39762c7764c7c6be4';
 
-// Fetch data
+
+/**
+ * Fetch the list of most starred repos and save it in the mongoDB database
+ */
 fetchAndSaveMostStarredRepos()
   .then(function(result){
       console.log("We are done");
@@ -15,7 +27,9 @@ fetchAndSaveMostStarredRepos()
     console.log("There was an error");
     console.log(error);
   });
-
+/**
+ * Request-promise structure to fetch the list of most starred repos and save it in the mongoDB database
+ */
 function fetchAndSaveMostStarredRepos(){
   var context = {};
   context.db_url = db_url;
@@ -34,6 +48,9 @@ function fetchAndSaveMostStarredRepos(){
     .then(saveMostStarredRepos)
     .then(closeDatabaseConnection);
 }
+/**
+ * Connect to the MongoDB database
+ */
 function openDatabaseConnection(context){
   console.log("open DB connection...");
   return MongoClient.connect(context.db_url)
@@ -43,6 +60,9 @@ function openDatabaseConnection(context){
       return context;
     })
 }
+/**
+ * Question github api to fetch the list of most starred repos  
+ */
 function fetchMostStarredRepos(context){
   console.log("fetching most starred repositories from REST api...");
   return request(context.apiOptions)
@@ -52,6 +72,9 @@ function fetchMostStarredRepos(context){
       return context;
     })
 }
+/**
+ * Save the most starred repos on the database in the form of a new collection named "repos"
+ */
 function saveMostStarredRepos(context){
   console.log("Saving most starred repositories...");
   var collection = context.db.collection("repos");
@@ -62,6 +85,9 @@ function saveMostStarredRepos(context){
       return context;
     })
 }
+/**
+ * Close the connection to the MongoDB database
+ */
 function closeDatabaseConnection(context){
   console.log("closing db connection...");
   return context.db.close()
@@ -77,9 +103,10 @@ app.use(bodyParser.json());       // to support JSON-encoded bodies
 
 app.set('port', (process.env.PORT || 5000));
 
+//App files located in /public
 app.use(express.static(__dirname + '/public'));
 
-// views is directory for all template files
+// views is the directory for all template files
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 

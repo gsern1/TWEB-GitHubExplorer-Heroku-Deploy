@@ -6,7 +6,10 @@
 	* @name app.controller:gefeature1Ctrl
 	* @description
 	* # gefeature1Ctrl
-	* Controller of the app
+	* Controller of the github explorer app feature 1,  displays a 
+	* list of the most starred repos on github	
+	* @author Antoine Drabble
+	* @author Guillaume Serneels
 	*/
 
   	angular
@@ -16,11 +19,10 @@
 		Gefeature1.$inject = ['$scope', '$http'];
 
 		/*
-		* recommend
-		* Using function declarations
-		* and bindable members up top.
+		* @summary instantiates the Gefeature1 module
+		* Fetches the list of the most starred repos on github by executing 
+		* an http get query on the url /most_starred_repos
 		*/
-
 		function Gefeature1($scope, $http) {
 			/*jshint validthis: true */
 			var vm = this;

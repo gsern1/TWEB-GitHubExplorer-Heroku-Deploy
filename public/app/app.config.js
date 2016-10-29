@@ -6,7 +6,10 @@
 	 * @name app.config:config
 	 * @description
 	 * # Config and run block
-	 * Configutation of the app
+	 * Configutation of the of the github explorer app
+	 * 
+	 * @author Antoine Drabble
+	 * @author Guillaume Serneels
 	 */
 
 

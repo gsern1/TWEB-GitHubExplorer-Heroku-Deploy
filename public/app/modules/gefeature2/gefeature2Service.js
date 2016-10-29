@@ -6,7 +6,9 @@
 	 * @name app.service:gefeature2Service
 	 * @description
 	 * # gefeature2Service
-	 * Service of the app
+	 * Serviceof the github explorer app feature 2
+     * @author Antoine Drabble
+     * @author Guillaume Serneels
 	 */
 
   	angular

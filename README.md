@@ -8,6 +8,8 @@ The project is aimed at developing and deploy a web application allowing users t
 
 ### branch gh-pages : Landing Page
 
+The gh-pages branch of this repository contains the landing page of the github explorer web app.
+
 The landing page is made available using GitHub Pages an can be accessed at the following URL:
 
 https://gsern1.github.io/TWEB-GitHubExplorer-Heroku-Deploy/
@@ -15,9 +17,13 @@ https://gsern1.github.io/TWEB-GitHubExplorer-Heroku-Deploy/
 
 ### branch master : Github explorer web application
 
-To develop this project we have first created an AngularJS application using the angm generator. The application's navigation relies on the UI-Router framework and the charts display is made possible by the angular-chart.js (based on Chart.js) module. The aplication's database has been created with MongoDB.
+The master branch of this repository contains the source code oh the github explorer web app as deployed on heroku.
+
+To develop this project we have first created an AngularJS application using the angm generator. The application's navigation relies on the UI-Router framework and the charts display is made possible by the angular-chart.js (based on Chart.js) module. 
 
 This AngularJS application was then incorporated inside a simple Node.js app using Expess 4, and deployed to heroku, along with the mLab MongoDB module.
+
+The aplication's database has been created with MongoDB. It is used to store the list of the most starred repos on github when the app is launched and to log every query executed on the feature 2 of the app.
 
 Here's the adress of the heroku deployement:
 
@@ -26,9 +32,8 @@ https://tweb-github-explorer.herokuapp.com/
 
 ### html template
 
-The html template we're using is Future Imperfect from html5up.
+The html template we're using is Future Imperfect from [html5up](https://html5up.net/future-imperfect).
 
-https://html5up.net/future-imperfect
 
 ## GitHub Explorer features
 
@@ -38,7 +43,9 @@ List the repositories which recieved stars from the most users on GitHub.
 
 ### Feature 2 : repository commiters
 
-See every user who commited to the repository of your choice and the percentages of their contribution
+See every user who commited to the repository of your choice and the percentages of their contribution.
+
+See an historic of every request which were executed on feature 2.
 
 ### Feature 3 : user's repositories
 

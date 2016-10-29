@@ -5,7 +5,9 @@
  * @name app.route:gefeature2Route
  * @description
  * # gefeature2Route
- * Route of the app
+ * Route of the github explorer app feature 2
+ * @author Antoine Drabble
+ * @author Guillaume Serneels
  */
 
 angular.module('gefeature2')

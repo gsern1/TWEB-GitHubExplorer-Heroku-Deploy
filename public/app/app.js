@@ -4,9 +4,12 @@
 	/**
 	 * @ngdoc index
 	 * @name app
-	 * @description
-	 * # app
-	 *
+	 * @description 
+	 * 
+	 * Declares the modules of the github explorer app
+	 * 
+	 * @author Antoine Drabble
+	 * @author Guillaume Serneels
 	 * Main modules of the application.
 	 */
 

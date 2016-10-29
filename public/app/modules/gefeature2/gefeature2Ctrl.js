@@ -6,7 +6,11 @@
 	* @name app.controller:gefeature2Ctrl
 	* @description
 	* # gefeature2Ctrl
-	* Controller of the app
+	* Controller of the github explorer app feature 2,  displays a 
+	* list of every user who to a repository specified by the user
+	* @author Antoine Drabble
+	* @author Guillaume Serneels
+	*
 	*/
 
   	angular
@@ -16,11 +20,9 @@
 		Gefeature2.$inject = ['$scope', '$http', '$q'];
 
 		/*
-		* recommend
-		* Using function declarations
-		* and bindable members up top.
+		* @summary instantiates the Gefeature2 module
+		* Queries the github api to fetch and display every commiter of the specified repo
 		*/
-
 		function Gefeature2($scope, $http, $q) {
 			/*jshint validthis: true */
 			var vm = this;
@@ -33,7 +35,7 @@
 
 			$scope.username = 'galedric';
 			$scope.repoName = 'HEIG-GEN';
-
+			/* using a token to interact with the github api*/
 			$scope.getRepoData = function() {
 				$http.get("https://api.github.com/repos/" + $scope.username + "/" + $scope.repoName + "/branches", {
 					headers: {'Authorization': 'token 1ee24c1562555ac1694480b39762c7764c7c6be4'}
@@ -82,7 +84,7 @@
 
 						$scope.history.push({date: new Date(), user: $scope.username, repo: $scope.repoName});
 						$scope.requestFound = 1;
-
+						/* log the successfull request in the database */
 						return $http.post('/add_feature2_request', {repo : $scope.username, user : $scope.repoName});
 					}
 				);
