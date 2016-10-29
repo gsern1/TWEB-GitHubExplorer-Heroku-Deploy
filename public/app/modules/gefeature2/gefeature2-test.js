@@ -3,10 +3,13 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.test:gefeature2Test
+	 * @name app.test:gefeature1Test
 	 * @description
-	 * # gefeature2Test
-	 * Test of the app
+	 * # gefeature1Test
+	 * Test of the github explorer app feature 2
+	 * 
+	 * @author Antoine Drabble
+	 * @author Guillaume Serneels
 	 */
 
 	describe('gefeature2 test', function () {

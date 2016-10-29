@@ -6,7 +6,7 @@
 	 * @name app.test:gefeature1Test
 	 * @description
 	 * # gefeature1Test
-	 * Test of the github explorer app
+	 * Test of the github explorer app feature 1
 	 * 
 	 * @author Antoine Drabble
 	 * @author Guillaume Serneels

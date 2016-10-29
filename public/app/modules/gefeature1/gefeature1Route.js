@@ -5,7 +5,7 @@
  * @name app.route:gefeature1Route
  * @description
  * # gefeature1Route
- * Route of of the github explorer app feature 1
+ * Route of the github explorer app feature 1
  * @author Antoine Drabble
  * @author Guillaume Serneels
  */

@@ -10,6 +10,7 @@
 	* list of the most starred repos on github	
 	* @author Antoine Drabble
 	* @author Guillaume Serneels
+	*
 	*/
 
   	angular

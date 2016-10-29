@@ -6,7 +6,10 @@
 	 * @name app.test:gefeature3Test
 	 * @description
 	 * # gefeature3Test
-	 * Test of the app
+	 * Test of the github explorer app feature 3
+	 * 
+	 * @author Antoine Drabble
+	 * @author Guillaume Serneels
 	 */
 
 	describe('gefeature3 test', function () {
