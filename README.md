@@ -2,7 +2,7 @@
 
 This repository contains the result of the fist lab session for Antoine Drabble and Guillaume Serneels in the TWEB Course 2016-20117 at HEIG-VD. 
 
-The project is aimed at developing and deploy a web application allowing users to explore usage statistics of github.com. The users are first welcomed by a landing page before accessing the web app.
+The project is aimed at developing and deploying an AngularJS 1 web application allowing users to explore usage statistics of github.com. The users are first welcomed by a landing page before accessing the web app.
 
 ## Project structure
 
@@ -17,13 +17,13 @@ https://gsern1.github.io/TWEB-GitHubExplorer-Heroku-Deploy/
 
 ### branch master : Github explorer web application
 
-The master branch of this repository contains the source code oh the github explorer web app as deployed on heroku.
+The master branch of this repository contains the source code of the github explorer web app as deployed on [heroku](www.heroku.com).
 
-To develop this project we have first created an AngularJS application using the angm generator. The application's navigation relies on the UI-Router framework and the charts display is made possible by the angular-chart.js (based on Chart.js) module. 
+To develop this project we have first created an [AngularJS](https://angularjs.org) application using the [angm](https://github.com/newaeonweb/generator-angm) generator. The application's navigation relies on the [UI-Router](https://github.com/angular-ui/ui-router) framework and the charts display is made possible by the [angular-chart.js](https://jtblin.github.io/angular-chart.js/) (based on [Chart.js](http://www.chartjs.org/)) module. 
 
-This AngularJS application was then incorporated inside a simple Node.js app using Expess 4, and deployed to heroku, along with the mLab MongoDB module.
+The aplication's database has been created with [MongoDB](https://mongodb.github.io/node-mongodb-native/). It is used to store the list of the most starred repos on github when the app is launched and to log every query executed on the feature 2 of the app.
 
-The aplication's database has been created with MongoDB. It is used to store the list of the most starred repos on github when the app is launched and to log every query executed on the feature 2 of the app.
+This AngularJS application was then incorporated inside a simple Node.js app using Expess 4, and deployed to heroku, along with the [mLab MongoDB](https://elements.heroku.com/addons/mongolab) module.
 
 Here's the adress of the heroku deployement:
 
