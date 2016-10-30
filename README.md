@@ -12,7 +12,7 @@ The **gh-pages** branch of this repository contains the landing page of the gith
 
 The landing page is made available using GitHub Pages an can be accessed at the following URL:
 
-https://gsern1.github.io/https://gsern1.github.io/TWEB-Labo1-GithubExplorer/
+https://gsern1.github.io/TWEB-Labo1-GithubExplorer/
 
 
 ### branch master : Github explorer web application
