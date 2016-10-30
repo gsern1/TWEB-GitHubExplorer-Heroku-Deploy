@@ -35,6 +35,9 @@
 					$scope.reposFound = data.length;
 				});
 		};
+		$scope.sortByMostStarredRepos = function(repo){
+			return parseInt(repo.stargazers_count);
+		};
 	}
 
 })();

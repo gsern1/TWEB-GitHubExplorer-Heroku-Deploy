@@ -1,6 +1,6 @@
 <div class="container" ng-init="getMostStarredRepos()">
 	<h1>Feature 1 : Most starred repos</h1>
-	<p>List the repositories which recieved stars from the most users on GitHub</p>
+	<p>List the repositories which received stars from the most users on GitHub</p>
 	<table class="table">
 		<thead>
 			<th>Name</th>
@@ -14,7 +14,7 @@
 				<td></td>
 			</tr>
 			<div ng-show="reposFound">
-				<tr ng-repeat="repo in most_starred_repos">
+				<tr ng-repeat="repo in most_starred_repos | orderBy:sortByMostStarredRepos:true">
 					<td><a href="{{repo.html_url}}" target="_blank"> {{repo.name}} </a></td>
 					<td>{{repo.forks}}</td>
 					<td>{{repo.stargazers_count}}</td>

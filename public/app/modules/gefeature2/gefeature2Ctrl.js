@@ -86,8 +86,7 @@
 					$scope.requestFound = 1;
 					/* log the successfull request in the database */
 					return $http.post('/add_feature2_request', { repo: $scope.username, user: $scope.repoName });
-				}
-				);
+				});
 		}
 	}
 
