@@ -1,8 +1,8 @@
 # TWEB Labo 1 : Mining Data in Github
 
-This repository contains the result of the fist lab session for Antoine Drabble and Guillaume Serneels in the TWEB Course 2016-20117 at HEIG-VD. 
+This repository contains the result of the fist lab session for Antoine Drabble and Guillaume Serneels in the TWEB Course 2016-2017 at HEIG-VD. 
 
-The project is aimed at developing and deploying an AngularJS 1 web application allowing users to explore usage statistics of github.com. The users are first welcomed by a landing page before accessing the web app.
+The project is aimed at developing and deploying an AngularJS 1 web application allowing users to explore usage statistics of github.com. The users are first welcomed by a landing page and can click on the "START EXPLORING NOW" link to access the webapp.
 
 ## Project structure
 
@@ -12,7 +12,7 @@ The **gh-pages** branch of this repository contains the landing page of the gith
 
 The landing page is made available using GitHub Pages an can be accessed at the following URL:
 
-https://gsern1.github.io/TWEB-GitHubExplorer-Heroku-Deploy/
+https://gsern1.github.io/https://gsern1.github.io/TWEB-Labo1-GithubExplorer/
 
 
 ### branch master : Github explorer web application
@@ -39,13 +39,13 @@ The html template we're using is Future Imperfect from [html5up](https://html5up
 
 ### Feature 1 : most starred repos
 
-List the repositories which recieved stars from the most users on GitHub.
+List the most starred repositories on GitHub. The data is fetched when the server starts and is stored in the MongoDB database.
 
 ### Feature 2 : repository commiters
 
 See every user who commited to the repository of your choice and the percentages of their contribution.
 
-See an historic of every request which were executed on feature 2.
+See an historic of every request which were executed on this feature
 
 ### Feature 3 : user's repositories
 
