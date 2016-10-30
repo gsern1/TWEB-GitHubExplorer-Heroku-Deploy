@@ -27,7 +27,7 @@
 		/*jshint validthis: true */
 		var vm = this;
 
-		$scope.username = 'angular';
+		$scope.username = 'servietsky777';
 
 		$scope.getUserData = function () {
 			$http.get("https://api.github.com/users/" + $scope.username + "/repos", {

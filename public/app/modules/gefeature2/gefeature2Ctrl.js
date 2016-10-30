@@ -33,8 +33,8 @@
 				$scope.requestFound = data.length;
 			});
 
-		$scope.username = 'galedric';
-		$scope.repoName = 'HEIG-GEN';
+		$scope.username = 'gsern1';
+		$scope.repoName = 'TWEB-Labo1-GithubExplorer';
 		/* using a token to interact with the github api*/
 		$scope.getRepoData = function () {
 			$http.get("https://api.github.com/repos/" + $scope.username + "/" + $scope.repoName + "/branches", {
