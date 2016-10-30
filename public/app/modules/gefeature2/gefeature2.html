@@ -3,12 +3,19 @@
 		<h1>Feature 2 : Repository commiters</h1>
 		<p>See every user who commited to the repository {{repoName}} owned by {{username}}, and the percentages of their contribution</p><br/>
 		<h3>Username<br/>
-			<input ng-model="username" ng-change="getRepoData()" /></h3><br/>
+			<input ng-model="username" ng-change="getRepoData()" type="text" placeholder="Enter the username" class="form-control input-md"
+			/></h3><br/>
 		<h3>Repository name<br/>
-			<input ng-model="repoName" ng-change="getRepoData()" /></h3><br/>
-		<canvas id="pie" class="chart chart-pie" chart-data="numberOfCommits" chart-labels="authors"><br/>
-	</div><br/><br/>
-	</canvas>
+			<input ng-model="repoName" ng-change="getRepoData()" type="text" placeholder="Enter the repository name" class="form-control input-md"></h3>
+			
+		<div style="color: red;" ng-show="repoError">
+			The repo <strong>{{$scope.repoName}}</strong> does not exist
+		</div><br/>
+		<canvas id="pie" class="chart chart-pie" chart-data="numberOfCommits" chart-labels="authors" ng-hide="repoError"><br/>
+			<br/><br/>
+		</canvas>
+	</div>
+
 	<h3>History of the requests</h3>
 	<p>Display every previously executed request on the github explorer feature 2:</p>
 	<table class="table">
@@ -32,5 +39,4 @@
 			</div>
 		</tbody>
 	</table>
-
 </div>

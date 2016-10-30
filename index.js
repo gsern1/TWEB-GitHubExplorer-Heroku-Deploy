@@ -5,6 +5,8 @@
  * @summary   Entry point of the github explorer web app
  *
  * @link      https://tweb-github-explorer.herokuapp.com/
+ * @author Antoine Drabble
+ * @author Guillaume Serneels
  * 
  */
 var express = require('express');
