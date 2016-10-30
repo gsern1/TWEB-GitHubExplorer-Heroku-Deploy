@@ -21,20 +21,20 @@
 
 	/*
 	* @summary instantiates the Gefeature1 module
-	* Fetches the list of the most starred repos on github by executing 
-	* an http get query on the url /most_starred_repos
+	* Fetches the list of the most starred repos from the database using 
+	* the REST API url /most_starred_repos
 	*/
 	function Gefeature1($scope, $http) {
-		/*jshint validthis: true */
-		var vm = this;
+		// Returns the list of most starred repos
 		$scope.getMostStarredRepos = function () {
 			$http.get("/most_starred_repos")
 				.success(function (data) {
-					console.log(data);
 					$scope.most_starred_repos = data;
 					$scope.reposFound = data.length;
 				});
-		};
+		}; 
+
+		// Used by Angular to sort the most starred repos by the number of stars
 		$scope.sortByMostStarredRepos = function(repo){
 			return parseInt(repo.stargazers_count);
 		};

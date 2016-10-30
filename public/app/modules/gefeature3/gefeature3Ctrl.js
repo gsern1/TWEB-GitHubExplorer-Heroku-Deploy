@@ -24,11 +24,10 @@
 	* This query is an http get query on the url /repos
 	*/
 	function Gefeature3($scope, $http) {
-		/*jshint validthis: true */
-		var vm = this;
-
+		// Default user that will be shown
 		$scope.username = 'servietsky777';
 
+		// Return the list of repos of the selected user
 		$scope.getUserData = function () {
 			$http.get("https://api.github.com/users/" + $scope.username + "/repos", {
 				headers: { 'Authorization': 'token 1ee24c1562555ac1694480b39762c7764c7c6be4' }

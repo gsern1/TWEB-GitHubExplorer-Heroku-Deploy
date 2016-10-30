@@ -7,7 +7,7 @@
 			/></h3><br/>
 		<h3>Repository name<br/>
 			<input ng-model="repoName" ng-change="getRepoData()" type="text" placeholder="Enter the repository name" class="form-control input-md"></h3>
-			
+
 		<div style="color: red;" ng-show="repoError">
 			The repo <strong>{{$scope.repoName}}</strong> does not exist
 		</div><br/>

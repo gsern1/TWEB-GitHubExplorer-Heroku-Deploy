@@ -1,10 +1,10 @@
 /**
- * Entry point of the github explorer web app, this file is needed because we have encapsulated our angular 1 application
- * inside a node.js application using Express 4 in order to deploy it on heroku.
+ * Entry point of the github explorer web app, it uses Express 4 to render the Angular 1 app and
+ * it provides the REST api needed for the features.
  *
  * @summary   Entry point of the github explorer web app
  *
- * @link      https://tweb-github-explorer.herokuapp.com/
+ * @link https://tweb-github-explorer.herokuapp.com/
  * @author Antoine Drabble
  * @author Guillaume Serneels
  * 
@@ -13,22 +13,11 @@ var express = require('express');
 var app = express();
 var request = require('request-promise');
 var MongoClient = require('mongodb').MongoClient;
-/* This MangoDB database is provided by the mLab module on heroku */
+
+// This MongoDB database is provided by the mLab module on heroku
 var db_url = "mongodb://admin:adminghe@ds057066.mlab.com:57066/heroku_70302nzl";
 var token = '1ee24c1562555ac1694480b39762c7764c7c6be4';
 
-
-/**
- * Fetch the list of most starred repos and save it in the mongoDB database
- */
-fetchAndSaveMostStarredRepos()
-  .then(function (result) {
-    console.log("We are done");
-  })
-  .catch(function (error) {
-    console.log("There was an error");
-    console.log(error);
-  });
 /**
  * This function relies on the request-promise syntax to fetch the list of 
  * most starred repos and save it in the mongoDB database
@@ -67,7 +56,7 @@ function openDatabaseConnection(context) {
     })
 }
 /**
- * Question github api to fetch the list of most starred repos  
+ * Fetch the list of most starred repos from the Github api 
  */
 function fetchMostStarredRepos(context) {
   console.log("fetching most starred repositories from REST api...");
@@ -79,7 +68,7 @@ function fetchMostStarredRepos(context) {
     })
 }
 /**
- * Save the most starred repos on the database in the form of a new collection named "repos"
+ * Save the most starred repos in the database in the form of a new collection named "repos"
  */
 function saveMostStarredRepos(context) {
   console.log("Saving most starred repositories...");
@@ -103,6 +92,19 @@ function closeDatabaseConnection(context) {
     })
 }
 
+/**
+ * Fetch the list of most starred repos and save it in the mongoDB database
+ */
+fetchAndSaveMostStarredRepos()
+  .then(function (result) {
+    console.log("We are done");
+  })
+  .catch(function (error) {
+    console.log("There was an error");
+    console.log(error);
+  });
+
+// Use bodyParser to parse POST parameters in HTTP requests
 var bodyParser = require('body-parser')
 app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.json());       // to support JSON-encoded bodies
@@ -116,10 +118,12 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+// The root url of the website serves the Angular app
 app.get('/', function (request, response) {
   response.render('pages/index');
 });
 
+// Return the list of the most starred repos from the database in JSON format
 app.get('/most_starred_repos', function (request, response) {
   MongoClient.connect(db_url)
     .then(function (db) {
@@ -135,6 +139,7 @@ app.get('/most_starred_repos', function (request, response) {
     });
 });
 
+// Returns the history of requests from the feature2 in JSON format
 app.get('/history', function (request, response) {
   MongoClient.connect(db_url)
     .then(function (db) {
@@ -150,6 +155,7 @@ app.get('/history', function (request, response) {
     });
 });
 
+// Add an element to the history of requests from the feature2
 app.post('/add_feature2_request', function (request, response) {
   console.log(request.body.repo);
   MongoClient.connect(db_url)
@@ -167,6 +173,7 @@ app.post('/add_feature2_request', function (request, response) {
     });
 });
 
+// Start the Express app
 app.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'));
 });
